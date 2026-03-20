@@ -1,0 +1,143 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", system-ui, sans-serif;
+  min-height: 100vh;
+  background-color: #212121;
+  color: #e0e0e0;
+}
+
+.container {
+  display: block;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.seed-input {
+  position: absolute;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  max-width: 400px;
+  padding: 12px 20px;
+  font-size: 48px;
+  font-family: "Macondo", cursive;
+  text-align: center;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.3);
+  outline: none;
+  z-index: 100;
+}
+
+.seed-input:focus {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.seed-input::selection {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.jacket {
+  position: relative;
+  width: 600px;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+.symbols-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  mix-blend-mode: overlay;
+  padding: 140px;
+}
+
+.symbol-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.symbol-item svg {
+  filter: drop-shadow(0 0 12px black) drop-shadow(0 0 25px black)
+    drop-shadow(0 0 40px rgba(0, 0, 0, 0.9));
+}
+
+/* Rain effect */
+.rain {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.drop {
+  position: absolute;
+  bottom: 100%;
+  width: 15px;
+  height: 120px;
+  pointer-events: none;
+  animation: drop 0.5s linear infinite;
+}
+
+@keyframes drop {
+  0% {
+    transform: translateY(0);
+  }
+  75% {
+    transform: translateY(600px);
+  }
+  100% {
+    transform: translateY(600px);
+  }
+}
+
+.stem {
+  width: 1px;
+  height: 60%;
+  margin-left: 7px;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0.25)
+  );
+  animation: stem 0.5s linear infinite;
+}
+
+@keyframes stem {
+  0% {
+    opacity: 1;
+  }
+  65% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
